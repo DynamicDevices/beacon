@@ -68,10 +68,12 @@ static void bt_ready(int err)
 	 * there is no API to retrieve that.
 	 */
 
+#if 0
 	bt_id_get(&addr, &count);
 	bt_addr_le_to_str(&addr, addr_s, sizeof(addr_s));
 
 	printk("Beacon started, advertising as %s\n", addr_s);
+#endif
 }
 
 int main(void)
@@ -85,5 +87,8 @@ int main(void)
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
 	}
+
+	while(1);
+
 	return 0;
 }
